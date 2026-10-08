@@ -174,10 +174,10 @@ function getPerformanceFormulaTip(property) {
     if (property === "waitingTime") {
         return {
             formula: type2
-                ? "WT = TAT − (CPU 1 + CPU 2)"
+                ? "WT = TAT − (CPU 1 + I/O + CPU 2)"
                 : "WT = TAT − CPU Burst",
             tip: type2
-                ? "Type 2: count only CPU time. Do not subtract I/O time as CPU work."
+                ? "Type 2: subtract the I/O time as well as CPU 1 and CPU 2 from the turnaround time."
                 : "Type 1: subtract the process's CPU burst from its turnaround time."
         };
     }

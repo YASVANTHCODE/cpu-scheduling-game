@@ -18,12 +18,12 @@ function calculatePerformance(schedule) {
         let turnaroundTime =
             completionTime - process.arrival;
 
-        let totalCpuTime = selectedQuestionType === "type2"
-            ? process.burst1 + process.burst2
+        let totalProcessTime = selectedQuestionType === "type2"
+            ? process.burst1 + process.io + process.burst2
             : process.burst;
 
         let waitingTime =
-            turnaroundTime - totalCpuTime;
+            turnaroundTime - totalProcessTime;
 
         let responseTime =
             executionBlocks[0].start - process.arrival;
