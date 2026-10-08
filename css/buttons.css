@@ -1,0 +1,680 @@
+#process-area {
+    margin-top: 30px;
+}
+
+#process-list {
+    min-height: 80px;
+    border: 2px dashed #d1d5db;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+#action-area {
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* ==============================
+   PROCESS BUTTON AREA
+   ============================== */
+
+#process-buttons {
+    margin-top: 25px;
+    text-align: center;
+}
+
+#process-buttons h3 {
+    margin-bottom: 18px;
+}
+
+.process-button {
+    margin: 8px;
+    border-radius: 12px;
+    border: 2px solid #d1d5db;
+    background: white;
+    color: #1f2937;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.process-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.10);
+}
+
+.process-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+    transform: none;
+    box-shadow: none;
+}
+
+.process-button-large {
+    min-width: 145px;
+    min-height: 82px;
+    padding: 12px 18px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.button-process-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.process-button small {
+    font-size: 0.78rem;
+    opacity: 0.72;
+}
+
+/* ==============================
+   SRTF
+   ============================== */
+
+.srtf-button {
+    min-width: 155px;
+}
+
+.button-remaining-time {
+    font-size: 1.45rem;
+    line-height: 1;
+}
+
+.srtf-button .button-process-name {
+    font-size: 1.1rem;
+}
+
+/* ==============================
+   ROUND ROBIN
+   ============================== */
+
+.rr-button {
+    min-width: 150px;
+    min-height: 88px;
+}
+
+.button-quantum {
+    font-size: 1.05rem;
+}
+
+.rr-button.current-execution {
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+}
+
+.rr-button.used-button {
+    opacity: 0.38;
+}
+
+/* ==============================
+   MOBILE
+   ============================== */
+
+@media (max-width: 600px) {
+    .process-button-large,
+    .rr-button,
+    .srtf-button {
+        width: calc(50% - 20px);
+        min-width: 125px;
+    }
+}
+
+/* ==============================
+   SRTF STATE VISUALS
+   ============================== */
+
+.srtf-button {
+    position: relative;
+}
+
+.srtf-status {
+    font-weight: 600;
+}
+
+.srtf-button.state-ready {
+    border-color: #2563eb;
+}
+
+.srtf-button.state-io {
+    border-color: #d97706;
+    background: #fff7ed;
+}
+
+.srtf-button.state-finished {
+    border-color: #9ca3af;
+    background: #f3f4f6;
+}
+
+.srtf-button.state-not-arrived {
+    border-color: #d1d5db;
+    background: #f9fafb;
+}
+
+/* ==============================
+   ROUND ROBIN STATES
+   ============================== */
+
+.rr-button {
+    position: relative;
+}
+
+.rr-button.queued-execution {
+    border-style: dashed;
+}
+
+.rr-button.current-execution {
+    border-width: 3px;
+}
+
+.rr-button.used-button {
+    background: #f3f4f6;
+}
+
+.rr-status {
+    font-weight: 600;
+}
+
+/* ==============================
+   SRTF TIME VISUALIZATION
+   ============================== */
+
+.srtf-time-bar {
+    width: 100%;
+    max-width: 110px;
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+}
+
+.srtf-time-segment {
+    width: 8px;
+    height: 12px;
+    border-radius: 2px;
+    background: #e5e7eb;
+    border: 1px solid #d1d5db;
+}
+
+.srtf-time-segment.segment-remaining {
+    background: #2563eb;
+    border-color: #2563eb;
+}
+
+.srtf-time-segment.segment-used {
+    background: #d1d5db;
+    border-color: #d1d5db;
+}
+
+/* ==============================
+   ROUND ROBIN QUEUE VISUALIZATION
+   ============================== */
+
+.rr-queue-title {
+    margin: 8px 0 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.rr-queue {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 0 auto 20px;
+    padding: 12px 16px;
+    max-width: 1000px;
+    border: 2px dashed #d1d5db;
+    border-radius: 12px;
+    background: #f9fafb;
+}
+
+.rr-queue-item {
+    padding: 7px 11px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    border: 1px solid #d1d5db;
+    background: white;
+    color: #374151;
+}
+
+.rr-queue-arrow {
+    font-weight: 700;
+    color: #6b7280;
+}
+
+.rr-queue-item.queue-current {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12);
+}
+
+.rr-queue-item.queue-completed {
+    opacity: 0.45;
+    text-decoration: line-through;
+}
+
+.rr-queue-item.queue-waiting {
+    opacity: 0.85;
+}
+
+@media (max-width: 600px) {
+    .srtf-time-bar {
+        max-width: 90px;
+    }
+
+    .srtf-time-segment {
+        width: 6px;
+        height: 10px;
+    }
+
+    .rr-queue {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+}
+
+
+/* ==============================
+   V4 GAME-STYLE REFINEMENTS
+   ============================== */
+
+.srtf-time-bar {
+    min-height: 14px;
+    padding: 2px 0;
+}
+
+.srtf-bar-label {
+    font-size: 0.68rem;
+    opacity: 0.58;
+    letter-spacing: 0.02em;
+}
+
+.rr-queue-legend {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin: -10px auto 18px;
+    font-size: 0.75rem;
+    opacity: 0.72;
+}
+
+.rr-queue-legend b {
+    font-weight: 700;
+}
+
+.rr-queue-item.queue-completed {
+    text-decoration: line-through;
+    transform: scale(0.94);
+}
+
+.rr-button.queued-execution:hover:not(:disabled) {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .rr-queue-legend {
+        flex-direction: column;
+        gap: 4px;
+    }
+}
+
+
+/* ==============================
+   V5 TYPE 2 SRTF PHASE VISUALS
+   ============================== */
+
+.srtf-time-bar {
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.srtf-phase-label {
+    width: 100%;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    opacity: 0.58;
+    margin-top: 2px;
+}
+
+.srtf-phase-label.io-label {
+    margin-top: 4px;
+}
+
+.srtf-time-segment.segment-io {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    opacity: 0.75;
+}
+
+.srtf-button.state-io .srtf-time-segment.segment-io {
+    opacity: 1;
+}
+
+.srtf-button.state-io .srtf-bar-label {
+    opacity: 0.9;
+}
+
+
+/* ==============================
+   TYPE 2 SRTF PHASE COLORS
+   ============================== */
+
+/* CPU1 keeps the blue CPU-time indication.
+   CPU2 uses a separate visible mild-green indication while remaining; consumed CPU2 time becomes gray just like completed CPU1 time. */
+.srtf-time-segment.segment-cpu2.segment-remaining {
+    background: #4ade80;
+    border-color: #22c55e;
+}
+
+.srtf-time-segment.segment-cpu2.segment-used {
+    background: #d1d5db;
+    border-color: #9ca3af;
+}
+
+
+/* ==============================
+   ROUND ROBIN PROCESS + QUANTUM MAP
+   ============================== */
+
+.rr-process-panel {
+    display: grid;
+    grid-template-columns: minmax(120px, 180px) 1fr;
+    gap: 22px;
+    width: min(100%, 1050px);
+    margin: 12px auto 24px;
+    padding: 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 16px;
+    background: #f9fafb;
+}
+
+.rr-process-list,
+.rr-quantum-area {
+    min-width: 0;
+}
+
+.rr-panel-title {
+    margin-bottom: 10px;
+    font-size: .82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: #4b5563;
+}
+
+.rr-process-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.rr-process-button {
+    width: 100%;
+    min-height: 52px;
+    margin: 0;
+    border-radius: 11px;
+    background: #fff;
+}
+
+.rr-process-button.rr-process-current {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+}
+
+.rr-process-button.rr-process-ready {
+    border-color: #93c5fd;
+}
+
+.rr-process-button.rr-process-completed {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+    color: #6b7280;
+    opacity: .65;
+}
+
+
+.rr-phase-legend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 0 auto 12px;
+    color: #4b5563;
+    font-size: .78rem;
+    font-weight: 800;
+}
+
+.rr-phase-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.rr-legend-swatch {
+    width: 16px;
+    height: 12px;
+    display: inline-block;
+    border-radius: 3px;
+    border: 1px solid #d1d5db;
+}
+
+.rr-legend-cpu1 {
+    background: #2563eb;
+    border-color: #2563eb;
+}
+
+.rr-legend-io {
+    background: #d1d5db;
+    border-color: #9ca3af;
+}
+
+.rr-legend-cpu2 {
+    background: #4ade80;
+    border-color: #22c55e;
+}
+
+.rr-quantum-area {
+    overflow-x: auto;
+}
+
+.rr-quantum-row {
+    min-width: max-content;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 58px;
+    padding: 7px 10px;
+    margin-bottom: 7px;
+    border: 1px solid #e5e7eb;
+    border-radius: 11px;
+    background: #fff;
+}
+
+.rr-row-process {
+    width: 30px;
+    flex: 0 0 30px;
+    font-weight: 800;
+    color: #374151;
+}
+
+.rr-quantum-chip {
+    width: 48px;
+    height: 42px;
+    padding: 3px;
+    border: 2px solid #d1d5db;
+    border-radius: 9px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    background: #fff;
+    color: #374151;
+    cursor: pointer;
+    transition: transform .14s ease, opacity .14s ease, filter .14s ease;
+}
+
+.rr-quantum-chip:hover:not(:disabled) {
+    transform: translateY(-2px);
+}
+
+.rr-quantum-number {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    color: #374151;
+    font-size: .76rem;
+    font-weight: 900;
+    border: 1px solid rgba(17,24,39,.14);
+}
+
+.rr-quantum-label {
+    font-size: .58rem;
+    font-weight: 900;
+    opacity: .85;
+}
+
+.rr-phase-cpu,
+.rr-phase-cpu1 {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #fff;
+}
+
+.rr-phase-cpu2 {
+    background: #4ade80;
+    border-color: #22c55e;
+    color: #14532d;
+}
+
+.rr-phase-io {
+    background: #d1d5db;
+    border-color: #9ca3af;
+    color: #4b5563;
+    cursor: not-allowed;
+}
+
+.rr-unit-current {
+    box-shadow: 0 0 0 3px rgba(37,99,235,.18);
+}
+
+.rr-unit-completed {
+    background: #d1d5db;
+    border-color: #9ca3af;
+}
+
+.rr-unit-hidden {
+    display: none;
+}
+
+.rr-phase-io.rr-io-active {
+    filter: brightness(.94);
+    box-shadow: inset 0 0 0 2px rgba(107,114,128,.18);
+}
+
+.rr-quantum-chip:disabled {
+    cursor: not-allowed;
+}
+
+@media (max-width: 700px) {
+    .rr-process-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .rr-process-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .rr-process-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 450px) {
+    .rr-process-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ==============================
+   ROUND ROBIN QUANTUM CONTROL
+   ============================== */
+
+.rr-quantum-control {
+    width: min(100%, 1050px);
+    margin: 0 auto 18px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 2px solid #d1d5db;
+    border-radius: 12px;
+    background: #f9fafb;
+    box-sizing: border-box;
+}
+
+.rr-quantum-control-label {
+    font-weight: 800;
+    color: #374151;
+}
+
+.rr-quantum-input {
+    width: 74px;
+    height: 38px;
+    padding: 4px 8px;
+    border: 2px solid #9ca3af;
+    border-radius: 9px;
+    background: #fff;
+    color: #1f2937;
+    font-size: 1rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+.rr-quantum-input:focus {
+    outline: 3px solid rgba(37,99,235,.14);
+    border-color: #2563eb;
+}
+
+.rr-quantum-control-unit {
+    color: #6b7280;
+    font-size: .86rem;
+    font-weight: 600;
+}
+
+
+/* Historical replay states for normal FCFS/SJF process buttons. */
+#process-buttons .process-button-large.state-ready {
+    border-color: #2563eb;
+}
+
+#process-buttons .process-button-large.state-io {
+    border-color: #d97706;
+    background: #fff7ed;
+    opacity: .82;
+}
+
+#process-buttons .process-button-large.state-finished {
+    border-color: #9ca3af;
+    background: #f3f4f6;
+    opacity: .65;
+}
+
+#process-buttons .process-button-large.state-not-arrived {
+    border-color: #d1d5db;
+    background: #f9fafb;
+    opacity: .62;
+}

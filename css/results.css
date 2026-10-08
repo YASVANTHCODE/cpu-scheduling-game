@@ -1,0 +1,250 @@
+#results {
+    margin: 20px 0;
+}
+
+#results table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+#results th,
+#results td {
+    border: 1px solid #d1d5db;
+    padding: 12px;
+    text-align: center;
+}
+
+#results th {
+    background: #f3f4f6;
+    font-weight: bold;
+}
+
+#results p {
+    margin-top: 10px;
+}
+
+#retry-button {
+    background: #16a34a;
+    margin-right: 10px;
+}
+
+#home-button {
+    background: #6b7280;
+}
+
+
+/* ==============================
+   PERFORMANCE LEVEL FLOW
+============================== */
+
+.performance-panel {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    background: #f9fafb;
+}
+
+.performance-panel h3 { margin-top: 0; }
+
+.performance-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.performance-level-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+}
+
+.performance-level-table th,
+.performance-level-table td {
+    border: 1px solid #d1d5db;
+    padding: 12px;
+    text-align: center;
+}
+
+.performance-level-table th { background: #f3f4f6; }
+.averages-card { padding: 10px 0; }
+
+.final-averages {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+}
+
+
+/* ==============================
+   CUMULATIVE PERFORMANCE LEVELS
+============================== */
+
+#performance-level-container {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.performance-level-card {
+    margin-top: 0;
+    scroll-margin-top: 20px;
+}
+
+.performance-instruction {
+    margin-bottom: 14px;
+}
+
+.performance-level-table input.performance-answer-input {
+    width: 110px;
+    max-width: 100%;
+    padding: 9px 10px;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.performance-level-table input.performance-answer-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, .12);
+}
+
+.performance-level-table input.answer-correct {
+    border-color: #16a34a;
+    background: #f0fdf4;
+}
+
+.performance-feedback {
+    display: block;
+    margin-top: 5px;
+    font-size: .8rem;
+    font-weight: 700;
+}
+
+.correct-feedback { color: #15803d; }
+.wrong-feedback { color: #dc2626; }
+.skipped-feedback { color: #b45309; }
+
+.performance-level-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+.performance-level-actions button {
+    min-width: 140px;
+}
+
+.performance-level-actions .skip-level-button {
+    background: #f59e0b;
+}
+
+.performance-level-actions .performance-submit-button {
+    background: #6b7280;
+}
+
+.performance-next-button:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+}
+
+.level-status {
+    margin: 12px 0 0;
+    font-weight: 700;
+}
+
+.status-complete { color: #15803d; }
+.status-skipped { color: #b45309; }
+
+
+/* ==============================
+   PERFORMANCE FORMULA / TIP
+============================== */
+
+.performance-formula-box {
+    margin: 12px 0 18px;
+    padding: 13px 15px;
+    border-left: 4px solid #2563eb;
+    border-radius: 8px;
+    background: #eff6ff;
+}
+
+.performance-formula-title {
+    font-size: .78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: #1d4ed8;
+    margin-bottom: 5px;
+}
+
+.performance-formula-main {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1f2937;
+}
+
+.performance-formula-tip {
+    margin-top: 5px;
+    font-size: .88rem;
+    color: #4b5563;
+    line-height: 1.45;
+}
+
+
+.performance-row-skip-button {
+    border: 0;
+    background: transparent;
+    color: #b45309;
+    padding: 2px 4px;
+    margin-top: 5px;
+    font-size: .76rem;
+    font-weight: 800;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.performance-row-skip-button:hover {
+    transform: none;
+    opacity: .8;
+}
+
+.average-level-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+}
+
+.average-level-table th,
+.average-level-table td {
+    border: 1px solid #d1d5db;
+    padding: 12px;
+    text-align: center;
+}
+
+.average-level-table th {
+    background: #f3f4f6;
+}
+
+.performance-average-input {
+    width: 130px;
+    max-width: 100%;
+    padding: 9px 10px;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+
+.results-score-heading {
+    margin-top: 25px;
+}

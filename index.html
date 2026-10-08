@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CPU Scheduling Game</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/setup.css">
+    <link rel="stylesheet" href="css/algorithm.css">
+    <link rel="stylesheet" href="css/gantt.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/results.css">
+    <link rel="stylesheet" href="css/developer.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/youtube-player.css">
+    <link rel="stylesheet" href="css/study-tools.css">
+</head>
+
+<body>
+
+    <!-- Developer Logo -->
+    <button id="developer-logo-button" class="developer-logo-button" aria-label="Open developer page" title="Developer">
+        <img src="assets/yas-logo.png" alt="YASI">
+    </button>
+
+    <!-- Developer Page -->
+    <section id="developer-page" class="developer-page" aria-hidden="true">
+        <div class="developer-card">
+            <button id="developer-close-button" class="developer-close-button" aria-label="Close developer page">&times;</button>
+
+            <div class="developer-logo-large">
+                <img src="assets/yas-logo.png" alt="YASI">
+            </div>
+
+            <p class="developer-label">DEVELOPER</p>
+            <h2>M.YASVANTH</h2>
+            <p class="developer-role">CSE STUDENT</p>
+
+            <a
+                class="developer-github-link"
+                href="https://github.com/YASVANTHCODE/cpu-scheduling-game"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open CPU Scheduling Game GitHub project"
+            >
+                <img class="developer-github-icon" src="assets/github-icon.png" alt="" aria-hidden="true">
+                <span>GitHub Project</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ==============================
+         STUDY TOOLS
+    ============================== -->
+
+    <div id="study-tools-rail" class="study-tools-rail" aria-label="Study tools">
+        <button id="question-tool-button" class="study-tool-button" type="button" aria-label="Show current question">
+            <span>Q</span>
+            <small>Question</small>
+        </button>
+        <button id="solving-kit-button" class="study-tool-button" type="button" aria-label="Show solving kit">
+            <span>✓</span>
+            <small>Solving Kit</small>
+        </button>
+    </div>
+
+    <div id="question-tool-popup" class="study-tool-popup question-tool-popup" aria-hidden="true"></div>
+    <div id="solving-kit-popup" class="study-tool-popup solving-kit-popup" aria-hidden="true"></div>
+
+    <!-- ==============================
+         HEADER
+    ============================== -->
+
+    <header>
+        <h1>CPU Scheduling Game</h1>
+        <p>Learn CPU Scheduling Through Practice</p>
+    </header>
+
+
+    <!-- ==============================
+         HOME SCREEN
+    ============================== -->
+
+    <section id="home-screen">
+
+        <h2>Welcome!</h2>
+
+        <p>
+            Practice CPU scheduling algorithms through an interactive game.
+        </p>
+
+        <button id="start-button">
+            Start Practice
+        </button>
+
+    </section>
+
+
+    <!-- ==============================
+         PRACTICE SCREEN
+    ============================== -->
+
+    <section id="practice-screen">
+
+        <div class="practice-title-row">
+            <h2>Practice Mode</h2>
+            <label id="game-mode-control" class="game-mode-toggle" title="Enable scoring mode">
+                <span class="game-mode-label">Game Mode</span>
+                <input id="game-mode-toggle" type="checkbox" aria-label="Toggle Game Mode">
+                <span class="game-mode-switch" aria-hidden="true"><span></span></span>
+            </label>
+        </div>
+
+
+        <!-- ==============================
+             QUESTION SETUP
+        ============================== -->
+
+        <div id="question-setup">
+
+            <h3>Question Setup</h3>
+
+            <!-- Question Type Selection -->
+
+            <div id="question-type-selection">
+
+                <button
+                    class="question-type-button active-question-type"
+                    data-question-type="type1">
+
+                    Question Type 1
+
+                </button>
+
+                <button
+                    class="question-type-button"
+                    data-question-type="type2">
+
+                    Question Type 2
+
+                </button>
+
+            </div>
+
+
+            <!-- Question Selection -->
+
+            <div id="question-selection">
+
+                <h4>Select Question</h4>
+
+                <div id="question-buttons">
+
+                    <button
+                        class="question-button selected-question"
+                        data-question="1">
+
+                        Q1
+
+                    </button>
+
+                    <button
+                        class="question-button"
+                        data-question="2">
+
+                        Q2
+
+                    </button>
+
+                    <button
+                        class="question-button"
+                        data-question="3">
+
+                        Q3
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Extra Question Controls -->
+
+            <div id="question-controls">
+
+                <button id="random-question-button">
+                    Random Question
+                </button>
+
+            </div>
+
+            <!-- Algorithm YouTube Player: stays inside the Question Setup box -->
+            <aside id="youtube-player-panel" class="youtube-player-panel" aria-hidden="true">
+                <div class="youtube-player-header">
+                    <span id="youtube-player-title" class="youtube-player-title">Algorithm Explanation</span>
+
+                    <div class="youtube-player-actions">
+                        <button id="youtube-player-open" class="youtube-player-action" type="button" aria-label="Open video on YouTube" title="Open on YouTube">↗</button>
+                    </div>
+                </div>
+
+                <div class="youtube-player-frame-wrap">
+                    <iframe
+                        id="youtube-player-frame"
+                        class="youtube-player-frame"
+                        title="Algorithm explanation video"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </aside>
+
+        </div>
+
+
+        <!-- ==============================
+             ALGORITHM SELECTION
+        ============================== -->
+
+        <div id="algorithm-area">
+
+            <h3>Select a Scheduling Algorithm</h3>
+
+            <div id="algorithm-selection">
+
+                <button
+                    class="algorithm-button"
+                    data-algorithm="FCFS"
+                    data-tooltip="First-Come, First-Served">
+
+                    FCFS
+
+                </button>
+
+                <button
+                    class="algorithm-button"
+                    data-algorithm="SJF"
+                    data-tooltip="Shortest Job First">
+
+                    SJF
+
+                </button>
+
+                <button
+                    class="algorithm-button"
+                    data-algorithm="SRTF"
+                    data-tooltip="Shortest Remaining Time First">
+
+                    SRTF
+
+                </button>
+
+                <button
+                    class="algorithm-button"
+                    data-algorithm="RR"
+                    data-tooltip="Round Robin">
+
+                    Round Robin
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==============================
+             PROCESS AREA
+        ============================== -->
+
+        <div id="process-area">
+
+            <div class="process-area-header">
+                <h3>Processes</h3>
+                <button id="edit-question-button" class="edit-question-button" type="button" aria-label="Edit Question" title="Edit Question"><span class="edit-pencil" aria-hidden="true">✎</span><span>Edit</span></button>
+            </div>
+
+            <div id="process-edit-message" class="process-edit-message" aria-live="polite"></div>
+
+            <div id="process-list"></div>
+
+            <div id="process-edit-actions" class="process-edit-actions" style="display:none;">
+                <button id="save-question-button" type="button">OK</button>
+                <button id="cancel-question-button" type="button">Cancel</button>
+            </div>
+
+        </div>
+
+
+        <!-- ==============================
+             GAME AREA
+        ============================== -->
+
+        <div id="game-area">
+
+            <h3>CPU Timeline</h3>
+
+            <div id="timeline"></div>
+
+        </div>
+
+
+        <!-- ==============================
+             ACTION AREA
+        ============================== -->
+
+        <div id="action-area">
+
+            <button
+                id="submit-button"
+                style="display: none;">
+
+                Submit
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         RESULTS SCREEN
+    ============================== -->
+
+    <section id="results-screen">
+
+        <h2>Results</h2>
+
+        <div id="results"></div>
+
+        <button id="retry-button">
+            Try Again
+        </button>
+
+        <button id="home-button">
+            Home
+        </button>
+
+    </section>
+
+
+    <!-- ==============================
+         JAVASCRIPT
+    ============================== -->
+
+    <!-- Shared state -->
+    <script src="js/state.js"></script>
+
+    <!-- Question system -->
+    <script src="js/questions.js"></script>
+
+    <!-- Type 2 scheduling engine -->
+    <script src="js/type2.js"></script>
+    <script src="js/method-config.js"></script>
+
+    <!-- Algorithms -->
+    <script src="js/algorithms/fcfs.js"></script>
+    <script src="js/algorithms/sjf.js"></script>
+    <script src="js/algorithms/srtf.js"></script>
+    <script src="js/algorithms/roundRobin.js"></script>
+
+    <!-- Game systems -->
+    <script src="js/gantt.js"></script>
+    <script src="js/snapshot-config.js"></script>
+    <script src="js/buttons.js"></script>
+    <script src="js/performance.js"></script>
+    <script src="js/results.js"></script>
+    <script src="js/study-tools.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/developer.js"></script>
+    <script src="js/youtube-player.js"></script>
+
+    <!-- Application startup / event connections -->
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

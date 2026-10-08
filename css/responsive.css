@@ -1,0 +1,76 @@
+/* Screens are controlled by JavaScript */
+
+#practice-screen,
+#results-screen {
+    display: none;
+}
+
+/* Mobile layout */
+
+@media (max-width: 600px) {
+
+    section {
+        margin: 15px;
+        padding: 20px;
+    }
+
+    #algorithm-selection {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    #question-type-selection {
+        flex-direction: column;
+    }
+
+    #question-buttons {
+        flex-wrap: wrap;
+    }
+
+    #question-controls {
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .practice-title-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .game-mode-toggle {
+        align-self: flex-end;
+    }
+
+    .process-area-header {
+        align-items: center;
+    }
+
+    .edit-question-button span {
+        display: none;
+    }
+
+    .process-edit-actions {
+        justify-content: stretch;
+    }
+
+    .process-edit-actions button {
+        flex: 1;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .gantt-replay-controls {
+        flex-wrap: wrap;
+    }
+
+    .gantt-replay-status {
+        width: 100%;
+        text-align: center;
+    }
+}

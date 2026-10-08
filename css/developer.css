@@ -1,0 +1,159 @@
+/* ==============================
+   DEVELOPER LOGO
+============================== */
+
+.developer-logo-button {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 1000;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #262626;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+    cursor: pointer;
+}
+
+.developer-logo-button:hover {
+    transform: scale(1.06);
+    opacity: 1;
+}
+
+.developer-logo-button img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+/* ==============================
+   DEVELOPER PAGE
+============================== */
+
+.developer-page {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    max-width: none;
+    margin: 0;
+    padding: 24px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(17, 24, 39, 0.82);
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.developer-page.open {
+    display: flex;
+}
+
+.developer-card {
+    position: relative;
+    width: min(420px, 92vw);
+    padding: 42px 30px 34px;
+    text-align: center;
+    background: white;
+    border-radius: 22px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+}
+
+.developer-close-button {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border-radius: 50%;
+    background: #f3f4f6;
+    color: #374151;
+    font-size: 25px;
+    line-height: 1;
+}
+
+.developer-close-button:hover {
+    background: #e5e7eb;
+    opacity: 1;
+}
+
+.developer-logo-large {
+    width: 116px;
+    height: 116px;
+    margin: 0 auto 22px;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #262626;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.developer-logo-large img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.developer-label {
+    margin-bottom: 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: #6b7280;
+}
+
+.developer-card h2 {
+    margin-bottom: 8px;
+    font-size: 1.8rem;
+}
+
+.developer-role {
+    color: #4b5563;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+
+
+/* ==============================
+   GITHUB PROJECT LINK
+============================== */
+
+.developer-github-link {
+    margin-top: 24px;
+    min-width: 190px;
+    padding: 11px 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border: 2px solid #d1d5db;
+    border-radius: 12px;
+    background: #fff;
+    color: #1f2937;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.developer-github-link:hover {
+    transform: translateY(-2px);
+    border-color: #9ca3af;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.10);
+}
+
+.developer-github-link:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.25);
+    outline-offset: 3px;
+}
+
+.developer-github-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    display: block;
+}

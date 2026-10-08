@@ -1,0 +1,319 @@
+#question-setup {
+    margin-top: 25px;
+    padding: 20px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    background: #f9fafb;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
+    column-gap: 24px;
+    align-items: start;
+}
+
+#question-setup > h3 {
+    grid-column: 1 / -1;
+}
+
+#question-setup h3 {
+    margin-bottom: 18px;
+}
+
+/* Question Type Buttons */
+
+#question-type-selection {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.question-type-button {
+    background: #374151;
+}
+
+.question-type-button.active-question-type {
+    background: #2563eb;
+}
+
+/* Question Selection */
+
+#question-selection {
+    margin-top: 15px;
+}
+
+#question-selection h4 {
+    margin-bottom: 12px;
+}
+
+#question-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.question-button {
+    background: #6b7280;
+    min-width: 80px;
+}
+
+.question-button.selected-question {
+    background: #2563eb;
+}
+
+/* Random and Edit Buttons */
+
+#question-controls {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+#random-question-button {
+    background: #16a34a;
+}
+
+#edit-question-button {
+    background: #7c3aed;
+}
+
+
+/* ==============================
+   PROCESS TABLE
+   ============================== */
+
+#process-edit-message {
+    min-height: 30px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    font-size: .88rem;
+    font-weight: 700;
+    color: #6b7280;
+}
+
+#process-edit-message:empty {
+    visibility: hidden;
+}
+
+#process-edit-message.edit-message-info {
+    color: #6d28d9;
+}
+
+#process-edit-message.edit-message-error {
+    color: #dc2626;
+}
+
+#process-edit-message.edit-message-success {
+    color: #15803d;
+}
+
+#process-list {
+    width: 100%;
+    overflow-x: auto;
+}
+
+#process-list table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    margin: 0;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#process-list th,
+#process-list td {
+    border: 1px solid #d1d5db;
+    padding: 11px 16px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+#process-list th {
+    background: #f3f4f6;
+    color: #1f2937;
+    font-weight: 700;
+}
+
+#process-list td:first-child,
+#process-list th:first-child {
+    text-align: left;
+}
+
+@media (max-width: 600px) {
+    #process-list table {
+        min-width: 470px;
+    }
+
+    #process-list th,
+    #process-list td {
+        padding: 9px 12px;
+    }
+}
+
+
+/* Keep the question controls fixed in the left column while the YouTube player uses the right column. */
+#question-type-selection,
+#question-selection,
+#question-controls {
+    grid-column: 1;
+}
+
+#question-type-selection { grid-row: 2; }
+#question-selection { grid-row: 3; }
+#question-controls { grid-row: 4; }
+
+
+/* ==============================
+   PRACTICE TITLE / GAME MODE
+============================== */
+
+.practice-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.practice-title-row h2 {
+    margin-bottom: 0;
+}
+
+.game-mode-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 7px 10px 7px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    background: #f9fafb;
+    cursor: pointer;
+    user-select: none;
+}
+
+.game-mode-label {
+    font-size: .88rem;
+    font-weight: 800;
+    color: #374151;
+}
+
+.game-mode-toggle input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.game-mode-switch {
+    width: 44px;
+    height: 24px;
+    padding: 3px;
+    border-radius: 999px;
+    background: #d1d5db;
+    transition: background .18s ease;
+}
+
+.game-mode-switch span {
+    display: block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,.18);
+    transition: transform .18s ease;
+}
+
+.game-mode-toggle input:checked + .game-mode-switch {
+    background: #16a34a;
+}
+
+.game-mode-toggle input:checked + .game-mode-switch span {
+    transform: translateX(20px);
+}
+
+.game-mode-toggle:has(input:checked) {
+    border-color: rgba(22,163,74,.35);
+    background: rgba(240,253,244,.85);
+}
+
+/* ==============================
+   PROCESS HEADER / EDIT MODE
+============================== */
+
+.process-area-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.process-area-header h3 {
+    margin-bottom: 0;
+}
+
+.edit-question-button {
+    flex: 0 0 auto;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 12px;
+    font-size: .88rem;
+    font-weight: 800;
+    background: #7c3aed;
+}
+
+.edit-pencil {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    order: 0;
+}
+
+.edit-question-button > span:last-child {
+    order: 1;
+}
+
+.edit-question-button:disabled {
+    opacity: .48;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.process-edit-actions {
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.process-edit-actions button {
+    min-width: 88px;
+    padding: 9px 16px;
+}
+
+#save-question-button {
+    background: #16a34a;
+}
+
+#cancel-question-button {
+    background: #6b7280;
+}
+
+.question-edit-input {
+    width: 92px;
+    max-width: 100%;
+    padding: 8px 7px;
+    border: 2px solid #c4b5fd;
+    border-radius: 7px;
+    text-align: center;
+    font-size: .95rem;
+    background: #faf5ff;
+}
+
+.question-edit-input:focus {
+    outline: none;
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 3px rgba(124,58,237,.12);
+}

@@ -1,0 +1,270 @@
+#game-area {
+    margin-top: 30px;
+}
+
+
+.timeline-empty-message {
+    width: 100%;
+    min-height: 118px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    color: #6b7280;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.timeline-empty-message strong {
+    color: #374151;
+}
+#timeline {
+    min-height: 150px;
+    border: 2px dashed #d1d5db;
+    border-radius: 8px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#timeline:has(.gantt-toolbar),
+#timeline:has(.gantt-scroll-viewport) {
+    display: block;
+}
+
+
+.gantt-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.gantt-toolbar-label {
+    font-size: .82rem;
+    font-weight: 800;
+    color: #4b5563;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+.gantt-zoom-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.gantt-zoom-button {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border-radius: 8px;
+    background: #374151;
+    color: #fff;
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.gantt-zoom-button:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.gantt-zoom-value {
+    min-width: 52px;
+    text-align: center;
+    font-size: .78rem;
+    font-weight: 800;
+    color: #4b5563;
+}
+
+.gantt-scroll-viewport {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 8px;
+}
+
+.gantt-chart {
+    min-width: 100%;
+}
+
+.gantt-blocks {
+    display: flex;
+    width: 100%;
+}
+
+.gantt-block {
+    flex: 0 0 var(--gantt-block-width, 80px);
+    min-width: var(--gantt-block-width, 80px);
+    height: 80px;
+    border: 2px solid #374151;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: #f9fafb;
+}
+
+.gantt-process {
+    font-weight: bold;
+    color: #9ca3af;
+}
+
+.gantt-end-time {
+    position: absolute;
+    right: 6px;
+    bottom: 4px;
+    font-size: 13px;
+    color: #374151;
+}
+
+.gantt-times {
+    display: flex;
+    margin-top: 5px;
+}
+
+.gantt-times span {
+    flex: 0 0 var(--gantt-block-width, 80px);
+    min-width: var(--gantt-block-width, 80px);
+    font-size: 14px;
+}
+
+.gantt-times span:last-child {
+    flex-basis: auto;
+    min-width: 0;
+    margin-left: -1px;
+}
+
+.gantt-block.active-block {
+    border: 3px solid #2563eb;
+    background: #eff6ff;
+}
+
+.gantt-block.completed-block {
+    background: #f0fdf4;
+    border-color: #16a34a;
+}
+
+.results-gantt {
+    margin: 20px 0;
+}
+
+/* Gantt controls stay hidden until the CPU Timeline is hovered. */
+#timeline .gantt-zoom-controls {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+
+#timeline:hover .gantt-zoom-controls,
+#timeline:focus-within .gantt-zoom-controls {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Keep the horizontal scrollbar unobtrusive until the timeline is hovered. */
+#timeline .gantt-scroll-viewport {
+    scrollbar-color: transparent transparent;
+}
+
+#timeline:hover .gantt-scroll-viewport,
+#timeline:focus-within .gantt-scroll-viewport {
+    scrollbar-color: #9ca3af transparent;
+}
+
+#timeline .gantt-scroll-viewport::-webkit-scrollbar {
+    height: 10px;
+}
+
+#timeline .gantt-scroll-viewport::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#timeline .gantt-scroll-viewport::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 999px;
+}
+
+#timeline:hover .gantt-scroll-viewport::-webkit-scrollbar-thumb,
+#timeline:focus-within .gantt-scroll-viewport::-webkit-scrollbar-thumb {
+    background: #9ca3af;
+}
+
+
+/* ==============================
+   GANTT REPLAY CONTROLS
+============================== */
+
+.gantt-replay-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+    min-height: 38px;
+}
+
+.gantt-replay-arrow,
+.gantt-replay-button {
+    border: 1px solid #cbd5e1;
+    background: rgba(255,255,255,.82);
+    color: #374151;
+    min-width: 38px;
+    height: 36px;
+    padding: 0 10px;
+    border-radius: 9px;
+    font-weight: 800;
+    box-shadow: 0 2px 7px rgba(0,0,0,.06);
+}
+
+.gantt-replay-button {
+    background: #eef2ff;
+    border-color: #a5b4fc;
+    color: #4338ca;
+}
+
+.gantt-replay-arrow:disabled,
+.gantt-replay-button:disabled {
+    opacity: .38;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.gantt-replay-status {
+    min-width: 115px;
+    font-size: .76rem;
+    font-weight: 700;
+    color: #6b7280;
+    text-align: left;
+}
+
+.gantt-block.replay-highlight {
+    box-shadow: inset 0 0 0 4px #f59e0b, 0 0 0 2px rgba(245,158,11,.18);
+    z-index: 2;
+}
+
+
+.edit-schedule-error {
+    margin: 18px auto;
+    padding: 12px 16px;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    background: #fef2f2;
+    color: #b91c1c;
+    font-weight: 700;
+    text-align: center;
+}
+
+.gantt-replay-viewing {
+    cursor: default;
+}
